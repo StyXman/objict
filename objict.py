@@ -110,9 +110,9 @@ def run_tests():
     ass(repr(o), '''{'a': {'b': 1}}''')
 
     # we can json-dump it
-    import json
+    import json.encoder
     # debug
-    json.c_make_encoder  = None
+    json.encoder.c_make_encoder = None
     ass(json.dumps(o), '{"a": {"b": 1}}')
 
     # and of course json-load it
