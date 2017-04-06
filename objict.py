@@ -41,6 +41,15 @@ class objict():
     def items(self):
         return self.__dict__.items()
 
+    def __bool__(self):
+        return bool(self.__dict__)
+
+    def __str__(self):
+        return str(self.__dict__)
+
+    def __repr__(self):
+        return repr(self.__dict__)
+
 
 def run_tests():
     def ass(x, y=None):
@@ -91,9 +100,17 @@ def run_tests():
     # recursive
     o = objict({'a': {'b': 1}})
     ass(o.a.b, 1)
-    import json
+
+    # other stuff
+    ass(bool(o))
+    ass(str(o), '''{'a': {'b': 1}}''')
+    ass(repr(o), '''{'a': {'b': 1}}''')
+
     # we can json-dump it
-    # ass(json.dumps(o), '{a: {b: 1}}')
+    import json
+    # debug
+    json.c_make_encoder  = None
+    ass(json.dumps(o), '{"a": {"b": 1}}')
 
     # and of course json-load it
     # taken from http://www.json.org/example
