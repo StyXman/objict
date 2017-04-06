@@ -50,6 +50,9 @@ class objict(dict):
     def __repr__(self):
         return repr(self.__dict__)
 
+    def keys(self):
+        return self.__dict__.keys()
+
 
 def run_tests():
     def ass(x, y=None):
@@ -103,6 +106,11 @@ def run_tests():
     ass(o['a'].b, 1)
     ass(o.a['b'], 1)
     ass(o['a']['b'], 1)
+
+    # and back
+    # TODO:
+    # ass(dict(o)['a'], o.a)
+    ass(dict(o.items())['a'], o.a)
 
     # other stuff
     ass(bool(o))

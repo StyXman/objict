@@ -29,4 +29,9 @@ encoders, you must do this:
     json.encoder.c_make_encoder = None
     assert json.dumps(o) == '{"a": {"b": 1}}'
 
+or this:
+
+    o = objict({'a': {'b': 1}})
+    assert json.dumps(dict(o.items())) == '{"a": {"b": 1}}'
+
 Finally, the objects behave like any other `dict`.
