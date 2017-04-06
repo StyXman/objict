@@ -1,4 +1,4 @@
-class objict():
+class objict(dict):
     """A trick class that allows objects attributes be handled as dictionary
     keys and vice versa. That is, o.a == o['a']. Very useful when handling
     JSON."""
