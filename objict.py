@@ -100,6 +100,9 @@ def run_tests():
     # recursive
     o = objict({'a': {'b': 1}})
     ass(o.a.b, 1)
+    ass(o['a'].b, 1)
+    ass(o.a['b'], 1)
+    ass(o['a']['b'], 1)
 
     # other stuff
     ass(bool(o))
