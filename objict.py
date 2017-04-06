@@ -74,23 +74,11 @@ def run_tests():
     # deleting items
     del do['a']
     ass('a' not in do)
-    failed = False
-    try:
-        do.a
-        failed = True
-    except AttributeError:
-        pass
-    ass(not failed)
+    ass(not hasattr(do, 'a'))
 
     # deleting attributes
     del do.b
-    failed = False
-    try:
-        do.b
-        failed = True
-    except AttributeError:
-        pass
-    ass(not failed)
+    ass(not hasattr(do, 'b'))
     ass('b' not in do)
 
     # constructor tests
