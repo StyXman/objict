@@ -55,38 +55,38 @@ def run_tests():
 
     # I can create an object and nothing explodes
     # quite basic, but I started with this
-    do = objict()
+    o = objict()
 
     # setting items behaves like a dict
-    do['a'] = 1
-    ass('a' in do)
-    ass(do['a'], 1)
+    o['a'] = 1
+    ass('a' in o)
+    ass(o['a'], 1)
     # and I can access the attribute
-    ass(do.a, 1)
+    ass(o.a, 1)
 
     # setting attributes behaves like an object
-    do.b = 2
-    ass(do.b, 2)
+    o.b = 2
+    ass(o.b, 2)
     # but also like a dict
-    ass('b' in do)
-    ass(do['b'], 2)
+    ass('b' in o)
+    ass(o['b'], 2)
 
     # deleting items
-    del do['a']
-    ass('a' not in do)
-    ass(not hasattr(do, 'a'))
+    del o['a']
+    ass('a' not in o)
+    ass(not hasattr(o, 'a'))
 
     # deleting attributes
-    del do.b
-    ass(not hasattr(do, 'b'))
-    ass('b' not in do)
+    del o.b
+    ass(not hasattr(o, 'b'))
+    ass('b' not in o)
 
     # constructor tests
     ass(objict(a=1).a, 1)
     ass(objict({'a': 1}).a, 1)
     ass(objict([ ('a', 1) ]).a, 1)
-    do.c = 3
-    ass(objict(do).c, 3)
+    o.c = 3
+    ass(objict(o).c, 3)
 
     # recursive
     o = objict({'a': {'b': 1}})
